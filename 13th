@@ -1,0 +1,30 @@
+#include <stdio.h>
+struct Square {
+    float area;
+};
+struct Rectangle {
+    float length;
+    float breadth;
+};
+struct Shape {
+    struct Square square;
+    struct Rectangle rectangle;
+};
+void calculateSquareArea(struct Shape *shape, float side) {
+    shape->square.area = side * side;
+}
+float calculateRectangleArea(struct Shape *shape) {
+    return shape->rectangle.length * shape->rectangle.breadth;
+}
+
+int main() {
+    struct Shape shape;
+    shape.rectangle.length = 5.0;
+    shape.rectangle.breadth = 3.0;
+    float rectangle_area = calculateRectangleArea(&shape);
+    printf("Rectangle Area: %.2f\n", rectangle_area
+    calculateSquareArea(&shape, 4.0);
+    printf("Square Area: %.2f\n", shape.square.area);
+
+    return 0;
+}
