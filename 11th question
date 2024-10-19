@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int *inventory;
+    int size = 10;
+    inventory = (int *)malloc(size * sizeof(int));
+    if (inventory == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+    size = 20; // Increase inventory size to 20
+    inventory = (int *)realloc(inventory, size * sizeof(int));
+    if (inventory == NULL) {
+        printf("Memory reallocation failed\n");
+        return 1;
+    }
+    free(inventory);
+
+    return 0;
